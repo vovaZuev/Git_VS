@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 
 void FillRand(int* arr, int n);
@@ -8,9 +8,9 @@ void PushBack(int* arr, int* n, int value);
 int main()
 {
 	setlocale(LC_ALL, "");
-	cout << "Ïðèâåò ìèð!" << endl;
+	cout << "ÐŸÑ€Ð¸Ð²ÐµÑ‚ Ð¼Ð¸Ñ€!" << endl;
 	
-	int n = 10;
+	int n = 5;
 	int* arr = new int[n];
 	FillRand(arr, n);
 	PushBack(arr, &n, 999);
@@ -45,6 +45,5 @@ void PushBack(int* arr, int* n, int value)
 	}
 	temp[*n] = value;
 	delete[] arr;
-	*n++;
 	arr = temp;
 }
