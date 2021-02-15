@@ -45,5 +45,6 @@ void PushBack(int* arr, int* n, int value)
 	}
 	temp[*n] = value;
 	delete[] arr;
+	*n++;
 	arr = temp;
 }
