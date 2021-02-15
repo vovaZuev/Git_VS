@@ -3,7 +3,7 @@ using namespace std;
 
 void FillRand(int* arr, int n);
 void PrintArray(int* arr, int n);
-void PushBack(int* arr, int* n, int value);
+void PushBack(int** arr, int* n, int value);
 
 int main()
 {
@@ -12,8 +12,10 @@ int main()
 	
 	int n = 5;
 	int* arr = new int[n];
+	//0x100
 	FillRand(arr, n);
-	PushBack(arr, &n, 999);
+	PrintArray(arr, n);
+	PushBack(&arr, &n, 999);
 	PrintArray(arr, n);
 
 	delete[] arr;
@@ -36,14 +38,15 @@ void PrintArray(int* arr, int n)
 	cout << endl;
 }
 
-void PushBack(int* arr, int* n, int value)
+void PushBack(int** arr/*0x200*/, int* n, int value)
 {
 	int* temp = new int[*n + 1];
 	for (int i = 0; i < *n; i++)
 	{
-		temp[i] = arr[i];
+		temp[i] = (*arr)[i];
 	}
 	temp[*n] = value;
-	delete[] arr;
-	arr = temp;
+	delete[] *arr;
+	++*n;
+	*arr = temp;
 }
